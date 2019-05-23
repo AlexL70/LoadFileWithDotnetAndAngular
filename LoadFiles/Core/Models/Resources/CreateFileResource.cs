@@ -1,18 +1,14 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace LoadFiles.Core.Models
+namespace LoadFiles.Core.Models.Resources
 {
-    public class File
+    public class CreateFileResource
     {
-        public int Id { get; set; }
         [Required] [StringLength(255)]
         public string Name { get; set; }
         public int Size { get; set; }
         public DateTime UploadDate { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
-        [Required]
-        public string UploadPath { get; set; }
     }
 }
