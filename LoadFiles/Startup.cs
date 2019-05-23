@@ -1,8 +1,11 @@
+using LoadFiles.Core;
+using LoadFiles.Persistence;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -28,6 +31,12 @@ namespace LoadFiles
                 // configuration.RootPath = "ClientApp/dist";
                 configuration.RootPath = ".";
             });
+
+            //  Add DB Context
+            services.AddDbContext<LoadFilesDbContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString(
+                    Constants.ConnectionString.Default
+                )));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
