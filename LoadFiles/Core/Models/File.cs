@@ -8,7 +8,7 @@ namespace LoadFiles.Core.Models
         public int Id { get; set; }
         [Required] [StringLength(255)]
         public string Name { get; set; }
-        public int Size { get; set; }
+        public long Size { get; set; }
         public DateTime UploadDate { get; set; }
         public int UserId { get; set; }
         public User User { get; set; }

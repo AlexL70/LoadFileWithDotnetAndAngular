@@ -13,7 +13,6 @@ namespace LoadFiles.Mapping
             CreateMap<File, FileResource>();
 
             //  Resource => Model
-            CreateMap<CreateFileResource, File>();
         }
     }
 }
