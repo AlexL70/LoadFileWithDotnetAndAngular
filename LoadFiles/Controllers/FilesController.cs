@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -76,6 +77,12 @@ namespace LoadFiles.Controllers {
             result.User = _mapper.Map<User, UserResource>(user);
 
             return Ok(result);
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<FileResource>> GetAllFiles() {
+            var files = await _repository.GetAll();
+            return _mapper.Map<IEnumerable<MFile>, IEnumerable<FileResource>>(files);
         }
 
         private async Task<Tuple<string, long>> SaveAndGetRelativePath(int userId, IFormFile file) {
