@@ -26,6 +26,8 @@ namespace LoadFiles
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IFileRepository, FileRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
