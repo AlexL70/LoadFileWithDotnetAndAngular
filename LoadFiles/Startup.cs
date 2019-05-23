@@ -2,6 +2,7 @@ using System.Reflection;
 using AutoMapper;
 using LoadFiles.Core;
 using LoadFiles.Persistence;
+using LoadFiles.Settings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
@@ -26,9 +27,12 @@ namespace LoadFiles
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<FileLoading>(Configuration.GetSection(nameof(FileLoading)));
+
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IFileRepository, FileRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.Configure<FormOptions>(x => {

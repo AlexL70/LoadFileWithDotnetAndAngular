@@ -1,4 +1,4 @@
-namespace LoadFiles.Core
+namespace LoadFiles.Settings
 {
     public static class Constants
     {
