@@ -1,0 +1,11 @@
+<div class="well">
+  <div class="form-group">
+    <label for="make">{{ dropdownLabel }}</label>
+    <select name="make" id="make" class="form-control"
+      [(ngModel)]="userId" (change)="onUserIdChange()">
+      <option value=""></option>
+      <option *ngFor="let u of users" value="{{u.id}}">{{ u.name }}</option>
+    </select>
+  </div>
+  <button *ngIf="resetIsVisible" class="btn btn-default" (click)="resetUserId()">{{ resetCaption }}</button>
+</div>

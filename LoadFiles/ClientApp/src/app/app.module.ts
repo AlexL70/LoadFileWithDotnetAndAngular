@@ -12,6 +12,7 @@ import { FetchDataComponent } from './components/fetch-data/fetch-data.component
 import { FilesGroupComponent } from './components/files-group/files-group.component';
 import { FileTableComponent } from './components/file-table/file-table.component';
 import { LoadFileComponent } from './components/load-file/load-file.component';
+import { UserDropdownComponent } from './components/user-dropdown/user-dropdown.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { LoadFileComponent } from './components/load-file/load-file.component';
     FetchDataComponent,
     FilesGroupComponent,
     FileTableComponent,
-    LoadFileComponent
+    LoadFileComponent,
+    UserDropdownComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

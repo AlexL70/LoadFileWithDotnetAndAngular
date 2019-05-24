@@ -1,3 +1,4 @@
+import { UserDropdownComponent } from './../user-dropdown/user-dropdown.component';
 import { FileService } from './../../services/file.service';
 import { Component, OnInit, ViewChild, ElementRef, isDevMode } from '@angular/core';
 
@@ -8,13 +9,12 @@ import { Component, OnInit, ViewChild, ElementRef, isDevMode } from '@angular/co
 })
 export class LoadFileComponent implements OnInit {
   progress: number = null;
-  userId: number = 1;
   @ViewChild('fileInput') fileInput: ElementRef;
+  userId: number = null;
 
   constructor(private fileService: FileService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   uploadFile() {
     console.log('Upload File!');
@@ -30,6 +30,13 @@ export class LoadFileComponent implements OnInit {
       },
       event => { //  this.photos.push(event.body);
       });
+  }
+
+  onUserChanged(newUserId: number) {
+    if (isDevMode) {
+      console.log(`User change cought! User Id = ${newUserId}`);
+    }
+    this.userId = newUserId;
   }
 
 }
