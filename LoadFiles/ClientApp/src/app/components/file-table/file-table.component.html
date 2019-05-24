@@ -1,0 +1,18 @@
+<table class="table table-bordered table-hover">
+  <thead class="h4">
+    <th>Id</th>
+    <th>Name</th>
+    <th>Size</th>
+    <th>Upload Date</th>
+    <th>User</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let f of files">
+      <td>{{ f.id }}</td>
+      <td>{{ f.name }}</td>
+      <td>{{ f.size }}</td>
+      <td>{{ f.uploadDate | date : 'dd/MM/yyyy hh:mm:ss'}}</td>
+      <td>{{ f.user.name }}</td>
+    </tr>
+  </tbody>
+</table>
