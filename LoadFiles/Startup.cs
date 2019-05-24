@@ -42,8 +42,8 @@ namespace LoadFiles
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                // configuration.RootPath = "ClientApp/dist";
-                configuration.RootPath = ".";
+                // configuration.RootPath = ".";
+                configuration.RootPath = "ClientApp/dist";
             });
 
             //  Add DB Context
@@ -88,8 +88,8 @@ namespace LoadFiles
 
                 if (env.IsDevelopment())
                 {
-                    // spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                    //  spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                    spa.UseAngularCliServer(npmScript: "start");
                 }
             });
         }

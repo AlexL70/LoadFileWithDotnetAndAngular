@@ -33,7 +33,6 @@ wwwroot/
 # Angular Doc
 .angulardoc.json
 
-
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
