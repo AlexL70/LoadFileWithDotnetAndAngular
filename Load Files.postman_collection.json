@@ -1,0 +1,116 @@
+{
+	"info": {
+		"_postman_id": "4171c6e7-399a-4bac-a9e8-6b4ea4359b0d",
+		"name": "Load Files",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add File",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Temp/Cars/2018_Audi_A6_Sport_40_TDi_S-A_2.0.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{landing}}/api/files/:userId",
+					"host": [
+						"{{landing}}"
+					],
+					"path": [
+						"api",
+						"files",
+						":userId"
+					],
+					"variable": [
+						{
+							"key": "userId",
+							"value": "{{userId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all files",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{landing}}/api/files",
+					"host": [
+						"{{landing}}"
+					],
+					"path": [
+						"api",
+						"files"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{landing}}/api/myusers",
+					"host": [
+						"{{landing}}"
+					],
+					"path": [
+						"api",
+						"myusers"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "effd98f7-a9d7-4785-ae3a-1998dd5117b4",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b48b182d-b57b-4433-a683-d51eea6aed04",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "f2f783de-4bf0-4a1f-90ac-0fac3f7b9900",
+			"key": "landing",
+			"value": "localhost:5000",
+			"type": "string"
+		},
+		{
+			"id": "8b1a63cf-1330-4fc1-9ecb-75f3ac43cf21",
+			"key": "userId",
+			"value": "3",
+			"type": "string"
+		}
+	]
+}
