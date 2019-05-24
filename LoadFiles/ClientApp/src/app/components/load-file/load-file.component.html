@@ -1,0 +1,8 @@
+<h3>Upload file</h3>
+
+<input type="file" (change)="uploadFile()" #fileInput>
+<div class="progress" *ngIf="(progress > 0) && (progress < 100)">
+  <div class="progress-bar" [style.width]="progress + '%'">
+    <span class="sr-only">{{ progress }}% complete</span>
+  </div>
+</div>
