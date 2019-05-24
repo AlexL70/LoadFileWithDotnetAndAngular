@@ -1,6 +1,5 @@
-import { UserDropdownComponent } from './../user-dropdown/user-dropdown.component';
 import { FileService } from './../../services/file.service';
-import { Component, OnInit, ViewChild, ElementRef, isDevMode } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, isDevMode, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-load-file',
@@ -10,6 +9,7 @@ import { Component, OnInit, ViewChild, ElementRef, isDevMode } from '@angular/co
 export class LoadFileComponent implements OnInit {
   progress: number = null;
   @ViewChild('fileInput') fileInput: ElementRef;
+  @Output('fileLoaded') fileLoaded = new EventEmitter<File>();
   userId: number = null;
 
   constructor(private fileService: FileService) { }
@@ -17,7 +17,9 @@ export class LoadFileComponent implements OnInit {
   ngOnInit() {}
 
   uploadFile() {
-    console.log('Upload File!');
+    if (isDevMode) {
+      console.log('Upload File!');
+    }
     const nativeELement: HTMLInputElement = this.fileInput.nativeElement;
     const file = nativeELement.files[0];
     this.fileService.upload(this.userId, file,
@@ -28,7 +30,11 @@ export class LoadFileComponent implements OnInit {
           console.log(`File "${file.name}" is ${this.progress}% uploaded.`);
         }
       },
-      event => { //  this.photos.push(event.body);
+      event => {
+        if (isDevMode) {
+          console.log('File uploaded!', event.body);
+        }
+        this.fileLoaded.emit(event.body);
       });
   }
 
@@ -38,5 +44,4 @@ export class LoadFileComponent implements OnInit {
     }
     this.userId = newUserId;
   }
-
 }

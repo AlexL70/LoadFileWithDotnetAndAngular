@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FileService } from 'src/app/services/file.service';
+import { File } from './../../models/File';
 
 @Component({
   selector: 'app-file-table',
@@ -14,6 +15,10 @@ export class FileTableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.reloadFiles();
+  }
+
+  public reloadFiles(): void {
     this.fileService.getFiles()
       .subscribe(files => this.files = files);
   }
